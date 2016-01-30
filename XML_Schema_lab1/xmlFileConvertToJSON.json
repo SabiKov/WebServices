@@ -1,0 +1,34 @@
+{
+  "holidayform": {
+    "-xmlns": "http://sabi11.ddns.net",
+    "-xmlns:lt": "http://sabi11.ddns.net/locationTime",
+    "-xmlns:pd": "http://sabi11.ddns.net/personalDetails",
+    "-xmlns:sabi": "http://sabi11.ddns.net/XMLSchema-instance",
+    "-sabi:schemaLocation": "http://sabi11.ddns.net/holidayForm.xsd",
+    "lt:holidaytype": "Winter",
+    "lt:bookingdate": "05/01/2016",
+    "lt:duration": {
+      "lt:departure": [
+        "Alpine",
+        "20/01/2016"
+      ],
+      "lt:arrival": "20/01/2016"
+    },
+    "pd:customer1": {
+      "pd:name": "Joe Bloggs",
+      "pd:address": "Dublin 3",
+      "pd:dob": "11/05/1980",
+      "pd:gender": "Y",
+      "pd:phonenumber": "087456987",
+      "pd:nextofkin": "Frank Bloggs"
+    },
+    "pd:customer2": {
+      "pd:name": "Marry Bloggs",
+      "pd:address": "Dublin 3",
+      "pd:dob": "23/04/1983",
+      "pd:gender": "Y",
+      "pd:phonenumber": "087454587",
+      "pd:nextofkin": "Simon Bloggs"
+    }
+  }
+}

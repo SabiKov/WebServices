@@ -1,0 +1,33 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<holidayform
+        xmlns = "http://sabi11.ddns.net"
+        xmlns:lt = "http://sabi11.ddns.net/locationTime"
+        xmlns:pd = "http://sabi11.ddns.net/personalDetails"
+        xmlns:sabi = "http://sabi11.ddns.net/XMLSchema-instance"
+        sabi:schemaLocation = "http://sabi11.ddns.net/holidayForm.xsd" >
+
+    <lt:holidaytype>Winter</lt:holidaytype>
+    <lt:bookingdate>05/01/2016</lt:bookingdate>
+    <lt:duration>
+        <lt:departure>Alpine</lt:departure>
+        <lt:arrival>20/01/2016</lt:arrival>
+        <lt:departure>20/01/2016</lt:departure>
+    </lt:duration>
+    <pd:customer1>
+        <pd:name>Joe Bloggs</pd:name>
+        <pd:address>Dublin 3</pd:address>
+        <pd:dob>11/05/1980</pd:dob>
+        <pd:gender>Y</pd:gender>
+        <pd:phonenumber>087456987</pd:phonenumber>
+        <pd:nextofkin>Frank Bloggs</pd:nextofkin>
+    </pd:customer1>
+    <pd:customer2>
+        <pd:name>Marry Bloggs</pd:name>
+        <pd:address>Dublin 3</pd:address>
+        <pd:dob>23/04/1983</pd:dob>
+        <pd:gender>Y</pd:gender>
+        <pd:phonenumber>087454587</pd:phonenumber>
+        <pd:nextofkin>Simon Bloggs</pd:nextofkin>
+    </pd:customer2>
+</holidayform>

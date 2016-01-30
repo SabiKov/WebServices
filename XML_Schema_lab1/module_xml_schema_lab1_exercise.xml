@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_xml_schema_lab1_exercise" default="compile.module.xml_schema_lab1_exercise">
+  <dirname property="module.xml_schema_lab1_exercise.basedir" file="${ant.file.module_xml_schema_lab1_exercise}"/>
+  
+  <property name="module.jdk.home.xml_schema_lab1_exercise" value=""/>
+  <property name="module.jdk.bin.xml_schema_lab1_exercise" value=""/>
+  <property name="module.jdk.classpath.xml_schema_lab1_exercise" value=""/>
+  
+  <property name="compiler.args.xml_schema_lab1_exercise" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="xml_schema_lab1_exercise.output.dir" value="undefined"/>
+  <property name="xml_schema_lab1_exercise.testoutput.dir" value="undefined"/>
+  
+  <path id="xml_schema_lab1_exercise.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="xml_schema_lab1_exercise.module.production.classpath"/>
+  
+  <path id="xml_schema_lab1_exercise.runtime.production.module.classpath"/>
+  
+  <path id="xml_schema_lab1_exercise.module.classpath"/>
+  
+  <path id="xml_schema_lab1_exercise.runtime.module.classpath"/>
+  
+  
+  <patternset id="excluded.from.module.xml_schema_lab1_exercise">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.xml_schema_lab1_exercise">
+    <patternset refid="excluded.from.module.xml_schema_lab1_exercise"/>
+  </patternset>
+  
+  
+  <target name="compile.module.xml_schema_lab1_exercise" depends="compile.module.xml_schema_lab1_exercise.production,compile.module.xml_schema_lab1_exercise.tests" description="Compile module XML_Schema_lab1_exercise"/>
+  
+  <target name="compile.module.xml_schema_lab1_exercise.production" depends="register.custom.compilers" description="Compile module XML_Schema_lab1_exercise; production classes"/>
+  
+  <target name="compile.module.xml_schema_lab1_exercise.tests" depends="register.custom.compilers,compile.module.xml_schema_lab1_exercise.production" description="compile module XML_Schema_lab1_exercise; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.xml_schema_lab1_exercise" description="cleanup module">
+    <delete dir="${xml_schema_lab1_exercise.output.dir}"/>
+    <delete dir="${xml_schema_lab1_exercise.testoutput.dir}"/>
+  </target>
+</project>
