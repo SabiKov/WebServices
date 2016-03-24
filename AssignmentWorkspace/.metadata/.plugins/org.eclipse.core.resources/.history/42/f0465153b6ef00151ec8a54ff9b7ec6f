@@ -1,0 +1,24 @@
+/**
+ *  This file contains general functions
+ */
+
+/* Chop off bits from string */
+function chopper(param1) {
+	
+	return param1.split("_").pop();
+}
+
+/* Cooking JSON data from selected form */
+function formToJSON(id, name, brand, category, price, quantity) {
+	console.log('Cooking json: ' + ' id:'+id + ' name:'+name + ' brand:' + brand + ' category:'+ category + ' price:' + price + ' qty: ' + quantity );
+	itemId = id;
+	//alert(id + name + brand + category + price + quantity);
+	return JSON.stringify({
+		'id': itemId == '' ? null : itemId,
+		'name': name,
+		'brand': brand,
+		'category': category,
+		'price': 'price',
+		'quantity': quantity
+	});
+}

@@ -1,0 +1,10 @@
+/**
+ *  This file contains general functions
+ */
+
+/* Chop off bits from string */
+
+function chopper(param1) {
+	
+	return param1.split("_").pop();
+}

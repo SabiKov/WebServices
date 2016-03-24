@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;toy/src/main/webapp/js/generalHelper.js&apos; to &apos;helperGlobal.js&apos;" description="Rename resource &apos;generalHelper.js&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/js/generalHelper.js" name="helperGlobal.js" stamp="1458566754625" updateReferences="true"/>
+</session>

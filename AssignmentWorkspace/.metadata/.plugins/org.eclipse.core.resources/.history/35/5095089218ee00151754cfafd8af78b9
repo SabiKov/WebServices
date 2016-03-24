@@ -1,0 +1,77 @@
+package co.sabi11.toy.resources;
+
+import java.util.List;
+
+import javax.ws.rs.BeanParam;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
+
+import co.sabi11.toy.model.Toy;
+import co.sabi11.toy.service.ToyServices;
+
+@Path("toys")
+@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+public class ToyResource {
+		
+	ToyServices toyService = new ToyServices();
+	
+	/* Get all item or one of them based on user choice */
+	@GET
+	public List<Toy> getToy(@BeanParam ToyFilterBean filterBean) {
+		
+		if(queryType.equalsIgnoreCase("name")) {
+			return toyService.getAllToyBasedOnName(argument1);
+		}
+		else if (queryType.equalsIgnoreCase("brand")) {
+			return toyService.getAllToyBasedOnBrand(argument1);
+		}
+		else if (queryType.equalsIgnoreCase("category")) {
+			return toyService.getAllToyBasedOnCategory(argument1);
+		}
+		else if (queryType.equalsIgnoreCase("price")) {
+			return toyService.getAlltoyBasedOnPriceInterval(argument1, argument2);
+		}
+		else {
+			return toyService.getAllToys();
+		}
+	}
+
+	@GET
+	@Path("/{toyId}")
+	public Toy getOneMessage(@PathParam("toyId") Long toyId) {
+			return toyService.getToy(toyId);
+	}
+		
+	/* Add new item */
+	@POST
+	public Toy addToy(Toy toy) {
+		return toyService.addToy(toy);
+	}
+	/* Update existent item  */
+	@PUT
+	@Path("/{toyId}")
+	public Toy updateToy(@PathParam("toyId")long id, Toy toy) {
+		toy.setId(id);
+		return toyService.updateToy(toy);
+	}
+	/* Remove item */	
+	@DELETE
+	@Path("/{toyId}")
+	public void deleteToy(@PathParam("toyId") long id) {
+		toyService.removeToy(id);
+	}
+	
+	/* Search based on item's name */
+	
+	
+	
+}

@@ -1,0 +1,21 @@
+/**
+ *  This file contains general functions
+ */
+
+/* Chop off bits from string */
+function chopper(param1) {
+	
+	return param1.split("_").pop();
+}
+
+/* Cooking JSON data from selected form */
+function formToJSON(itemId) {
+	
+	// Creating customized id of each form element, which dynamically changes based on item'id
+	var itemId = '#id_' + itemId; 
+	var itemName = '#name_' + itemId;
+	var itemBrand = '#brand_' + itemId;
+	var itemCategory = '#category_' + itemId; 
+	var itemPrice = '#price_' + itemId; 
+	var itemQuantity = '#quantity_' + itemId;
+}

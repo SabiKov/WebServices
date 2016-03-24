@@ -1,0 +1,84 @@
+
+var rootURL = 'http://localhost:8080/toy/webapi/toys';
+// full path with parameters 
+//?queryType=&argument1=&argument2=
+//http://localhost:8080/toy/webapi/toys?queryType=&argument1=&argument2=
+var userChoice;
+$(document).on('pageshow', '#firstPage', function(){
+	/* Add dynamic content, input field and button */
+	$('#searchOption').change(function () {
+		  userChoice = '';
+          $("select option:selected").each(function () {
+                userChoice = $(this).val();
+				if(userChoice == 'select') { clearSearchDiv(); }
+				else if(userChoice == 'price') { buildSearchOptionInt(); }
+				else if(userChoice == 'all') { findAllItem(); clearSearchDiv(); }
+				else { buildSearchOptionString(userChoice); }
+			});
+         // add our submit button on end
+      //  $('#firstPageDisplayBox').appendTo( '.ui-page' ).trigger( 'create' );
+     //   alert('loader');
+          $('#firstPageSearchOption').trigger('create'); // then tell JQM to recreate page because we added new content  	
+        })
+        .change();
+	/* Inject all items */
+	findAllItem();
+	
+	/* Search Query Handler Unit */
+	$('#firstPageSearchBtn').click(function(){
+		var arg1 = '';
+		if(userChoice == 'price') {
+			var arg2 = '';
+			arg1 = $('#lowerPrice').val();
+			arg2 = $('#upperPrice').val();
+			findAllItem(userChoice, arg1, arg2);
+			console.log(userChoice + ': '+ arg1 + ' - ' + arg2);
+		}
+		else {
+			arg1 = $('#searchParam').val();
+			findAllItem(userChoice, arg1)
+			console.log('app.js: ' + userChoice + ': '+ arg1);
+		}
+	//	$( '#firstPageSearchBtn' ).trigger( 'create' );
+	});
+
+	/* Belong to Update operator */
+	$('#firstPageDisplayBox').on('click', '.editBtn', function (event) {
+		try{
+			var urlid = $(this).attr('id');
+			var isclass = $(this).attr('class');
+			// get the item id -- calls helperGlobal.js
+			var editBtnId = chopper(urlid);
+			// Creating customized id of each form element, which dynamically changes based on item'id
+			var itemId = '#id_' + editBtnId; 
+			var itemName = '#name_' + editBtnId;
+			var itemBrand = '#brand_' + editBtnId;
+			var itemCategory = '#category_' + editBtnId; 
+			var itemPrice = '#price_' + editBtnId; 
+			var itemQuantity = '#quantity_' + editBtnId;
+			var id = $(itemId).val();
+			var name = $(itemName).val();
+			var brand = $(itemBrand).val();
+			var category = $(itemCategory).val();
+			var price = $(itemPrice).val();
+			var quantity = $(itemQuantity).val();
+			// Update item
+			console.log('Update fn from app.js: ' + id + '/' + name + '/' + brand + '/' + category + '/' + price + '/' + quantity);
+			updateToy(id,name,brand,category,price,quantity);
+			event.preventDefault();
+		}
+		catch(err) {
+			alert('ERROR: ' + err);
+		}
+	});
+	// Add new item to DB
+	$('#addItemBtnSubmit').click(function(){
+		alert('new item submit');
+	});
+	// Clear out new item form
+	$('#addItemBtnReset').click(function(){
+		alert('new item reset');
+	});
+});
+
+

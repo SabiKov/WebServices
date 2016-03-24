@@ -1,0 +1,5 @@
+package co.sabi11.toy.exception;
+
+public class DataNotFoundException {
+
+}

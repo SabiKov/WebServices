@@ -1,0 +1,44 @@
+package co.sabi11.toy.service;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+
+import co.sabi11.toy.database.DatabaseClass;
+import co.sabi11.toy.model.Toy;
+
+public class ToyServices {
+	
+	private Map<Long, Toy> toys = DatabaseClass.getToys();
+	
+	public ToyServices() {
+		toys.put(1L,  new Toy(1, "Hello World", "Sabi"));
+		toys.put(2L,  new Toy(2, "Hello Jersey", "Sabi"));
+	}
+	
+	public List<Toy> getAllToys() {
+		return new ArrayList<Toy>(toys.values());
+	}
+	
+	public Toy getToy(Long id) {
+		return toys.get(id);
+	}
+	
+	public Toy addToy(Toy toy) {
+		toy.setId(toys.size() + 1);
+		toys.put(toy.getId(), toy);
+		return toy;
+	}
+	
+	public Toy updateToy(Toy toy) {
+		if(toy.getId() <=0) {
+			return null;
+		}
+		toys.put(toy.getId(), toy);
+		return toy;
+	}
+
+	public Toy removeToy(long id) {
+		return toys.remove(id);
+	}
+}

@@ -1,0 +1,10 @@
+package co.sabi11.toy.resources.bean;
+
+import javax.ws.rs.QueryParam;
+
+public class ToyFilterBean {
+
+	@QueryParam("queryType") String queryType,
+	@QueryParam("argument1") String argument1,
+	@QueryParam("argument2") String argument2)
+}

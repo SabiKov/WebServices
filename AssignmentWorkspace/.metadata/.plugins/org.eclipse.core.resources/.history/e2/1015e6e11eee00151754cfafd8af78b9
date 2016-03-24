@@ -1,0 +1,98 @@
+package co.sabi11.toy.resources;
+
+import java.util.List;
+
+import javax.ws.rs.BeanParam;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+
+import co.sabi11.toy.model.Toy;
+import co.sabi11.toy.resources.bean.ToyFilterBean;
+import co.sabi11.toy.service.ToyServices;
+
+@Path("toys")
+@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+public class ToyResource {
+		
+	ToyServices toyService = new ToyServices();
+	
+	/* Get all item or one of them based on user choice 
+	 * The QueryParam is implemented within the ToyFilterBean. 
+	 * All parameters can be accessed via getter and setter functions.
+	 * */
+	@GET
+	public List<Toy> getToy(@BeanParam ToyFilterBean filterBean) {
+		
+		if(filterBean.getQueryType().equalsIgnoreCase("name")) {
+			return toyService.getAllToyBasedOnName(filterBean.getArgument1());
+		}
+		else if (filterBean.getQueryType().equalsIgnoreCase("brand")) {
+			return toyService.getAllToyBasedOnBrand(filterBean.getArgument1());
+		}
+		else if (filterBean.getQueryType().equalsIgnoreCase("category")) {
+			return toyService.getAllToyBasedOnCategory(filterBean.getArgument1());
+		}
+		else if (filterBean.getQueryType().equalsIgnoreCase("price")) {
+			return toyService.getAlltoyBasedOnPriceInterval(filterBean.getArgument1(), filterBean.getArgument2());
+		}
+		else {
+			return toyService.getAllToys();
+		}
+	}
+
+	@GET
+	@Path("/{toyId}")
+	public Toy getOneMessage(@PathParam("toyId") Long toyId) {
+			return toyService.getToy(toyId);
+	}
+		
+	/* Add new item */
+//	@POST
+/*	public Toy addToy(Toy toy) {
+		return toyService.addToy(toy);
+	} */
+	@POST
+	public Response addToy(Toy toy) {
+		Toy newToy = toyService.addToy(toy);
+		
+		return Response.status(Status.CREATED)
+				.entity(newToy)
+				.build();
+	}
+	
+	/* Update existent item  */
+	@PUT
+	@Path("/{toyId}")
+	public Toy updateToy(@PathParam("toyId")long id, Toy toy) {
+		toy.setId(id);
+		return toyService.updateToy(toy);
+	}
+	/* Remove item */	
+	@DELETE
+	@Path("/{toyId}")
+	public void deleteToy(@PathParam("toyId") long id) {
+		toyService.removeToy(id);
+	}
+	
+	/* Alternative way to access sub-resource class 
+	 * Whenever the URL path is targeted therefore 
+	 * all requests will be forwarded to description java class.
+	 * */
+	@Path("/{toyId}/descriptions")
+	public DescriptionResource getDescriptionResource() {
+		return new DescriptionResource();
+	}
+	
+	
+	
+}

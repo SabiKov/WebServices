@@ -1,0 +1,39 @@
+@media only screen and (min-width: 600px){
+        body { 
+            background:transparent !important; 
+            overflow:hidden !important;
+        }
+        html {
+            background: #fff;
+            background-attachment: fixed;
+            overflow:hidden !important;         
+         }
+        .ui-page {
+            width: 500px !important;
+            border:60px solid #111 !important;
+            margin: 50px auto !important;
+            position: relative !important;
+            border-right: 20px #222 outset !important;
+            border-left: 20px #000 outset !important;
+            border-radius:25px;
+            -webkit-border-radius:25px;
+            -moz-border-radius:25px;
+            overflow-y:scroll !important;
+            min-height:400px !important;
+            height:500px !important;
+            max-height:500px !important;
+            padding-bottom:0px;
+        }
+	div[data-role="footer"] {
+            min-height:60px !important;
+            height:600px !important;
+            max-height: 60px !important;
+            padding-bottom:0px;
+			width:100%;
+	}
+
+}
+		.pageTitle {
+			text-align: center;
+				font-family: "Comic Sans MS, Times New Roman", Georgia, Serif;
+		}

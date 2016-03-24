@@ -1,0 +1,12 @@
+package co.sabi11.toy.model;
+
+public class Toy {
+	
+    private String id;
+    private String name;
+    private String category;
+    private String brand;
+    private String price;
+    private int qty;
+
+}

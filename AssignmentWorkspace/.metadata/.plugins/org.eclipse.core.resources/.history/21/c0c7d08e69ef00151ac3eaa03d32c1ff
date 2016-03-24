@@ -1,0 +1,14 @@
+/**
+ *  This file contains general functions
+ */
+
+/* Chop off bits from string */
+
+function chopper(param1) {
+	
+	/* find all numeric after underscore symbol */
+	var validId = param1.split("_").pop();
+	
+	
+	return validId;
+}

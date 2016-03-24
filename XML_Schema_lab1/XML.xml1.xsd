@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://sabi11.ddns.net/personalDetails" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="customer2" type="per:customer2Type" xmlns:per="http://sabi11.ddns.net/personalDetails"/>
+  <xs:element name="customer1" type="per:customer1Type" xmlns:per="http://sabi11.ddns.net/personalDetails"/>
+  <xs:complexType name="customer1Type">
+    <xs:sequence>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:string" name="address"/>
+      <xs:element type="xs:string" name="dob"/>
+      <xs:element type="xs:string" name="gender"/>
+      <xs:element type="xs:string" name="phonenumber"/>
+      <xs:element type="xs:string" name="nextofkin"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="customer2Type">
+    <xs:sequence>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:string" name="address"/>
+      <xs:element type="xs:string" name="dob"/>
+      <xs:element type="xs:string" name="gender"/>
+      <xs:element type="xs:string" name="phonenumber"/>
+      <xs:element type="xs:string" name="nextofkin"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

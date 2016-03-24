@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://sabi11.ddns.net" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="holidayform" type="sab:holidayformType" xmlns:sab="http://sabi11.ddns.net"/>
+  <xs:complexType name="holidayformType">
+    <xs:sequence>
+      <xs:element ref="loc:holidaytype" xmlns:loc="http://sabi11.ddns.net/locationTime"/>
+      <xs:element ref="loc:bookingdate" xmlns:loc="http://sabi11.ddns.net/locationTime"/>
+      <xs:element ref="loc:duration" xmlns:loc="http://sabi11.ddns.net/locationTime"/>
+      <xs:element ref="per:customer1" xmlns:per="http://sabi11.ddns.net/personalDetails"/>
+      <xs:element ref="per:customer2" xmlns:per="http://sabi11.ddns.net/personalDetails"/>
+    </xs:sequence>
+    <xs1:attribute ref="xs:schemaLocation" xmlns:xs="http://sabi11.ddns.net/XMLSchema-instance" xmlns:xs1="http://www.w3.org/2001/XMLSchema"/>
+  </xs:complexType>
+</xs:schema>
